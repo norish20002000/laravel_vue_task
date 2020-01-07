@@ -1,5 +1,5 @@
-# docker_laravel_nginx_node
-
+# laravel_vue_task.git
+定番タスク管理作成用
 - laravel6.0用のコンテナのみ最小構成です。
 - laravel6.0プロジェクト作成済。
 - auth済。
