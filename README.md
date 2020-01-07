@@ -1,4 +1,4 @@
-# laravel_vue_task.git
+# laravel_vue_task
 定番タスク管理作成用
 - laravel6.0用のコンテナのみ最小構成です。
 - laravel6.0プロジェクト作成済。
