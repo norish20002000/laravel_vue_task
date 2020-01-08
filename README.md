@@ -14,3 +14,8 @@ $ docker-compose exec app php artisan migrate
 $ docker-compose run node npm install
 $ docker-compose run node npm run dev
 ```
+
+## vue周りの開発時
+```bash
+$ docker-compose run node npm run watch
+```
