@@ -30,12 +30,12 @@ $ docker-compose exec app php artisan make:controller HogeController
 $ docker-compose exec app php artisan make:model Hoge
 ```
 
-### DB migration
+### DB migration
 #### テーブル作成migrationファイル作成
 ```bash
 $ docker-compose exec app php artisan make:migration create_hoge_table --create=hoge
 ```
-### modelとmigrationファイル作成
+### modelとmigrationファイル作成
 ```bash 
 $ docker-compose exec app php artisan make:model Models/Hoge --migration
 ```
