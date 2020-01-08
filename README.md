@@ -19,3 +19,43 @@ $ docker-compose run node npm run dev
 ```bash
 $ docker-compose run node npm run watch
 ```
+
+## larave開発
+### controller作成
+```bash
+$ docker-compose exec app php artisan make:controller HogeController
+```
+### model作成
+```bash
+$ docker-compose exec app php artisan make:model Hoge
+```
+
+### DB migration
+#### テーブル作成migrationファイル作成
+```bash
+$ docker-compose exec app php artisan make:migration create_hoge_table --create=hoge
+```
+### modelとmigrationファイル作成
+```bash 
+$ docker-compose exec app php artisan make:model Models/Hoge --migration
+```
+### テーブル変更migrationファイル作成
+```bash
+$ docker-compose exec app php artisan make:migration add_items_to_hoge_table --table=hoge
+```
+
+```
+#### DB migrate 実行
+```bash
+$ docker-compose exec app php artisan migrate
+```
+### ルーティングリスト
+```bash
+$ docker-compose exec app php artisan route:list
+```
+
+### テストデータ作成
+```bash
+$ docker-compose exec app composer dump-autoload
+$ docker-compose exec app php artisan db:seed
+```
