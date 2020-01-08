@@ -45,10 +45,10 @@ $ docker-compose exec app php artisan make:migration add_items_to_hoge_table --t
 ```
 ### テーブル削除
 ```bash
-$ php artisan make:migration drop_user_table
+$ docker-compose exec app php artisan make:migration drop_user_table
 Add this to your migrate file inside up function Schema::dropIfExists('tableName');
 
-$ php artisan migrate
+$ docker-compose exec app php artisan migrate
 ```
 
 #### DB migrate 実行
