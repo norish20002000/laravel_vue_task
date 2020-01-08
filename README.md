@@ -21,7 +21,7 @@ $ docker-compose run node npm run watch
 ```
 
 ## larave開発
-### controller作成
+### controller作成
 ```bash
 $ docker-compose exec app php artisan make:controller HogeController
 ```
@@ -35,21 +35,27 @@ $ docker-compose exec app php artisan make:model Hoge
 ```bash
 $ docker-compose exec app php artisan make:migration create_hoge_table --create=hoge
 ```
-### modelとmigrationファイル作成
+### modelとmigrationファイル作成
 ```bash 
 $ docker-compose exec app php artisan make:model Models/Hoge --migration
 ```
 ### テーブル変更migrationファイル作成
-```bash
+```bash
 $ docker-compose exec app php artisan make:migration add_items_to_hoge_table --table=hoge
 ```
+### テーブル削除
+```bash
+$ php artisan make:migration drop_user_table
+Add this to your migrate file inside up function Schema::dropIfExists('tableName');
 
+$ php artisan migrate
 ```
-#### DB migrate 実行
+
+#### DB migrate 実行
 ```bash
 $ docker-compose exec app php artisan migrate
 ```
-### ルーティングリスト
+### ルーティングリスト
 ```bash
 $ docker-compose exec app php artisan route:list
 ```
