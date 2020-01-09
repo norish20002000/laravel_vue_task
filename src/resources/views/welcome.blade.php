@@ -83,6 +83,9 @@
                 <div class="title m-b-md">
                 <a href="{{ route('task') }}">sample view</a>
                 </div>
+                <div class="title m-b-md">
+                <a href="{{ route('todo') }}">sample view1</a>
+                </div>
 
                 <!-- <div class="links">
                     <a href="{{ route('task') }}">Docs</a>

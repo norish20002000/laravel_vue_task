@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('tasks-component', require('./components/TaskComponents.vue').default);
+Vue.component('todos-component', require('./components/TodoComponents.vue').default);
 
 
 /**

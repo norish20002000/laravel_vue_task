@@ -18,3 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/task', 'TaskController@getall');
+
+Route::get('/todo','TodoController@get');
+Route::post('/todo','TodoController@post');
+Route::delete('/todo/{id}','TodoController@delete');
+Route::put('/todo/{id}','TodoController@update');
