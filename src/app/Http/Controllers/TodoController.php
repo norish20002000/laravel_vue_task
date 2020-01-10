@@ -12,14 +12,23 @@ use Illuminate\Support\Facades\DB;
 class TodoController extends Controller
 {
     public function index() {
-        return view('todo');
+        $data = [
+            "name"=>"hello norinori"
+        ];
+
+        return view('todo', $data);
     }
 
     public function get(Request $request){
+        // $resultData = ["name"=>"hello norinori"];
+        
         if(Auth::check()) {
             // var_dump(Auth::user()->todos());exit;
             // return response()->json(Auth::user()->todos()->orderBy('updated_at', 'desc')->get());
-            return response()->json(DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get());
+            // $resultData["data"] 
+            // var_dump(DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get());exit;
+            // $resultdata = DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
+            return response()->json(["todos"=>DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get(), "name"=>"hello noriori"]);
         } else {
             // var_dump(Auth::user());exit;
             return response()->json(DB::table('todos')->Where('user_id', 0)->orderBy('updated_at', 'desc')->get());

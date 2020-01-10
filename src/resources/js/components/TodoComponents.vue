@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
+            <p >{{ name }}</p>
             <div class="col-md-8">
                 <div class="card">
                     <div class="form-group">
@@ -65,7 +66,8 @@
                 data._token = document.getElementsByName('csrf-token')[0].content;
                 axios.get("/api/todo/", data).then((result) => {
                     console.log(result);
-                    this.todos = result.data
+                    this.todos = result.data.todos
+                    this.name = result.data.name
                 })
             }
         },

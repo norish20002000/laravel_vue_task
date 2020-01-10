@@ -80,6 +80,9 @@
             @endif
 
             <div class="content">
+                <div>
+                    <p>{{ $name }}</p>
+                </div>
                 <div class="title m-b-md">
                 <a href="{{ route('task') }}">sample view</a>
                 </div>

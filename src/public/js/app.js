@@ -1955,6 +1955,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 // import api from "../api.js"
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TodoComponents.vue",
@@ -2016,7 +2017,8 @@ __webpack_require__.r(__webpack_exports__);
       data._token = document.getElementsByName('csrf-token')[0].content;
       axios.get("/api/todo/", data).then(function (result) {
         console.log(result);
-        _this4.todos = result.data;
+        _this4.todos = result.data.todos;
+        _this4.name = result.data.name;
       });
     }
   },
@@ -6590,7 +6592,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .filter {\n    margin: 1em 0em;\n} */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .filter {\n    margin: 1em 0em;\n} */\n", ""]);
 
 // exports
 
@@ -38236,6 +38238,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
+      _c("p", [_vm._v(_vm._s(_vm.name))]),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "col-md-8" },

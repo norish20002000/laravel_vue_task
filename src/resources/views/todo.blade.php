@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <todos-component></todos-component>
+    <div>
+        <a href="{{ route('task') }}">sample view</a>
+    </div>
+    <div>
+        <todos-component></todos-component>
+    </div>
 <!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
