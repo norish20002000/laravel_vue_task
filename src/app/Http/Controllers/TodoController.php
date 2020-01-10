@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Todo;
 use App\Models\Task;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TodoController extends Controller
 {
@@ -14,15 +16,27 @@ class TodoController extends Controller
     }
 
     public function get(Request $request){
-        // return response()->json(Auth::user()->todos()->orderBy('updated_at', 'desc')->get());
-        return Todo::all();
+        if(Auth::check()) {
+            // var_dump(Auth::user()->todos());exit;
+            // return response()->json(Auth::user()->todos()->orderBy('updated_at', 'desc')->get());
+            return response()->json(DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get());
+        } else {
+            // var_dump(Auth::user());exit;
+            return response()->json(DB::table('todos')->Where('user_id', 0)->orderBy('updated_at', 'desc')->get());
+        }
+        // return Todo::all();
     }
 
     public function post(Request $request){
         $todo = new Todo();
         $todo->todo = $request->input('todo');
-        // $todo->user_id = Auth::id();
-        $todo->user_id = 0;
+
+        if(Auth::check()) {
+            $todo->user_id = Auth::id();
+        } else {
+            $todo->user_id = 0;
+        }
+
         $todo->save();
         return response("OK", 200);
     }
