@@ -25,6 +25,6 @@ Route::get('/task', 'TaskController@index')->name('task');
 Route::get('/todo', 'TodoController@index')->name('todo');
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/profile', 'ProfileController@index');
-    Route::post('/profile', 'ProfileController@store');
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::post('/profile', 'ProfileController@store')->name('profile');
 });

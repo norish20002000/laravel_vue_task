@@ -89,6 +89,9 @@
                 <div class="title m-b-md">
                 <a href="{{ route('todo') }}">sample view1</a>
                 </div>
+                <div class="title m-b-md">
+                <a href="{{ route('profile') }}">save picture</a>
+                </div>
 
                 <!-- <div class="links">
                     <a href="{{ route('task') }}">Docs</a>
