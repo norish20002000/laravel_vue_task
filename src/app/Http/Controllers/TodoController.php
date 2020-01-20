@@ -28,10 +28,10 @@ class TodoController extends Controller
             // $resultData["data"] 
             // var_dump(DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get());exit;
             // $resultdata = DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
-            return response()->json(["todos"=>DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get(), "name"=>"hello noriori"]);
+            return response()->json(["todos"=>DB::table('todos')->where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get(), "hello"=>"hello noriori"]);
         } else {
             // var_dump(Auth::user());exit;
-            return response()->json(DB::table('todos')->Where('user_id', 0)->orderBy('updated_at', 'desc')->get());
+            return response()->json(["todos"=>DB::table('todos')->Where('user_id', 0)->orderBy('updated_at', 'desc')->get(), "hello"=>"nologin hello"]);
         }
         // return Todo::all();
     }

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <div>
     <p>プロフィール編集</p>
 </div>
@@ -28,7 +31,14 @@
 <div>
     <form method="POST" action="/profile" enctype="multipart/form-data">
         {{ csrf_field() }}
-        <input type="file" name="photo">
-        <input type="submit">
+        <label>
+            <span class="filelabel" title="ファイルを選択">
+                <img src="img/camera-orange-rev.png" width="32" height="26" alt="+画像">
+                選択
+            </span>
+            <input type="file" name="datafile" id="filesend">
+        </label>
+        <!-- <input type="submit" value="登録"> -->
     </form>
 </div>
+@endsection

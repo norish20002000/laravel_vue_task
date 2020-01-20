@@ -1956,6 +1956,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 // import api from "../api.js"
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TodoComponents.vue",
@@ -1963,7 +1966,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       active_todo: null,
       todo_form: "",
-      todos: []
+      todos: [],
+      hello: ""
     };
   },
   methods: {
@@ -2018,7 +2022,7 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/todo/", data).then(function (result) {
         console.log(result);
         _this4.todos = result.data.todos;
-        _this4.name = result.data.name;
+        _this4.hello = result.data.hello;
       });
     }
   },
@@ -6592,7 +6596,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .filter {\n    margin: 1em 0em;\n} */\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* .filter {\n    margin: 1em 0em;\n} */\n", ""]);
 
 // exports
 
@@ -38237,108 +38241,113 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c("p", [_vm._v(_vm._s(_vm.name))]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.todo_form,
-                    expression: "todo_form"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "inputtodo" },
-                domProps: { value: _vm.todo_form },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.todo_form = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.addTodo }
-                },
-                [_vm._v("Add")]
-              )
-            ])
-          ]),
-          _vm._v(" "),
-          _vm._l(_vm.todos, function(todo) {
-            return _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-header" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.deleteTodo(todo.id)
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-info",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        return _vm.updateTodo(todo.id)
-                      }
-                    }
-                  },
-                  [_vm._v("Update")]
-                ),
-                _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "row justify-content-center" },
+      [
+        _vm.hello ? [_c("p", [_vm._v(_vm._s(_vm.hello))])] : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-md-8" },
+          [
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "form-group" }, [
                 _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: todo.todo,
-                      expression: "todo.todo"
+                      value: _vm.todo_form,
+                      expression: "todo_form"
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { type: "text", id: "todo" },
-                  domProps: { value: todo.todo },
+                  attrs: { type: "text", id: "inputtodo" },
+                  domProps: { value: _vm.todo_form },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(todo, "todo", $event.target.value)
+                      _vm.todo_form = $event.target.value
                     }
                   }
-                })
+                }),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.addTodo }
+                  },
+                  [_vm._v("Add")]
+                )
               ])
-            ])
-          })
-        ],
-        2
-      )
-    ])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.todos, function(todo) {
+              return _c("div", { staticClass: "card" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-danger",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.deleteTodo(todo.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Delete")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-info",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          return _vm.updateTodo(todo.id)
+                        }
+                      }
+                    },
+                    [_vm._v("Update")]
+                  ),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: todo.todo,
+                        expression: "todo.todo"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", id: "todo" },
+                    domProps: { value: todo.todo },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(todo, "todo", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ])
+            })
+          ],
+          2
+        )
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

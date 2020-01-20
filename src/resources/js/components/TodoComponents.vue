@@ -1,7 +1,10 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <p >{{ name }}</p>
+            <template v-if="hello">
+                <p>{{ hello }}</p>
+            </template>
+            <!-- <p >{{ hello }}</p> -->
             <div class="col-md-8">
                 <div class="card">
                     <div class="form-group">
@@ -29,7 +32,8 @@
             return {
                 active_todo: null,
                 todo_form:"",
-                todos:[]
+                todos:[],
+                hello:""
             }
         },
         methods:{
@@ -67,7 +71,7 @@
                 axios.get("/api/todo/", data).then((result) => {
                     console.log(result);
                     this.todos = result.data.todos
-                    this.name = result.data.name
+                    this.hello = result.data.hello
                 })
             }
         },
